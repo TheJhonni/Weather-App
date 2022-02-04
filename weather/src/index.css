@@ -12,11 +12,11 @@ body {
 h1 {
   font-weight: bold;
 }
-.form-container {
-  background: url("./assets/R.jfif") no-repeat 20% 20% / cover;
+/* .form-container {
+  background: url("./assets/R.jfif") no-repeat 90% 90% / cover;
   height: auto;
-  @apply w-2/4 p-5 rounded-3xl;
-}
+  @apply w-3/4 p-5 rounded-3xl lg:bg-contain;
+} */
 
 .my-color1 {
   color: #c23035dc;
