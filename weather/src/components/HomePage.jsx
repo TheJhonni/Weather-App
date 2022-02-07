@@ -50,7 +50,7 @@ function HomePage() {
         }@4x.png`
       );
 
-      setMap(`Here goes ${data.city.name}'s MAP`);
+      setMap(`Click me to go to ${data.city.name}'s MAP`);
     } catch (error) {
       console.log(error);
     }
@@ -64,7 +64,7 @@ function HomePage() {
   return (
     <div className="flex items-start justify-center w-screen h-screen">
       <div className="flex w-3/4 rounded-3xl shadow-xl m-auto bg-gray-100 md:hover:scale-105  transition-all duration-50 ease-in-out">
-        <div className="bg-[url('./assets/R.jfif')] bg-no-repeat bg-cover object-cover h-80 lg:h-full w-3/4 p-5 rounded-3xl lg:bg-contain">
+        <div className="bg-[url('./assets/R.jfif')] bg-no-repeat bg-cover object-cover h-80 lg:h-full lg:w-full w-3/4 p-5 rounded-3xl lg:bg-contain">
           <div className="flex items-center justify-center">
             <h3
               className="my-auto mr-auto text-xl my-color font-bold shadow-md py-1 px-3 
@@ -110,13 +110,13 @@ function HomePage() {
               ></i>
             </form>
           </div>
-          {/* {searchTerm && ( */}
-          <div className="flex items-center justify-center min-w-[600px]">
-            {/* <p className="grid grid-cols-2  gap-2">{map}</p> */}
-            <Map />
-            {/* data={weatherData} */}
-          </div>
-          {/* )} */}
+          {searchTerm && (
+            <div className="flex flex-col  mx-auto">
+              <button className="cursor-pointer shadow-xl px-2 hover:bg-red-400 hover:text-white hover:rounded-3xl md:hover:scale-105 transition-all duration-50 ease-in-out">
+                {map}
+              </button>
+            </div>
+          )}
         </div>
 
         <div className="w-2/4 p-5 ">
