@@ -25,7 +25,6 @@ function HomePage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     getWeather(searchTerm);
-    getMap(searchTerm);
   };
 
   const getWeather = async (location) => {
@@ -57,32 +56,9 @@ function HomePage() {
     }
   };
 
-  const getMap = async (location) => {
-    //openweathermap.org/weathermap?basemap=map&cities=false&layer=clouds&lat=30&lon=-20&zoom=3
-    https: setMap([]);
-    let MapUrl =
-      `${process.env.REACT_APP_URL_MAP}` +
-      `lat=${location[0]}&lon=${location[1]}` +
-      ".png?" +
-      `appid=${process.env.REACT_APP_API_KEY}`;
-    try {
-      // https://tile.openweathermap.org/map/layer=precipitation/20
-      let resp = await fetch(`${MapUrl}`);
-      let dataMaps = await resp.json();
-      if (data.cod != 200) {
-        setMap("Problems with the Map...");
-        return;
-      }
-      setMap(dataMaps);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const myIP = (location) => {
     const { latitude, longitude } = location.coords;
     getWeather([latitude, longitude]);
-    getMap([latitude, longitude]);
   };
 
   return (
@@ -134,12 +110,13 @@ function HomePage() {
               ></i>
             </form>
           </div>
-          {searchTerm && (
-            <div className="fflex flex-col col-span-3 mx-auto">
-              <p className="grid grid-cols-2  gap-2">{map}</p>
-              {/* <Map location={location} /> */}
-            </div>
-          )}
+          {/* {searchTerm && ( */}
+          <div className="flex items-center justify-center min-w-[600px]">
+            {/* <p className="grid grid-cols-2  gap-2">{map}</p> */}
+            <Map />
+            {/* data={weatherData} */}
+          </div>
+          {/* )} */}
         </div>
 
         <div className="w-2/4 p-5 ">

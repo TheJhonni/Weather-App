@@ -19,12 +19,12 @@ function DetailCard({ weather_icon, data }) {
         <p className="tracking-wider">{moment().format("dddd MMM YYYY")}</p>
       </div>
       <div className="my-2 border-1-2 border-gray-100 p-2">
-        <p className="text-gray-400 text-lg">
+        <p className="text-gray-400 text-sm">
           RealFeel: {Math.round(main.feels_like)}&deg;C
         </p>
-        <p className="text-gray-400 text-lg">Humidity: {main.humidity}%</p>
-        <p className="text-gray-400 text-lg">Cloud Cover: {clouds.all}%</p>
-        <p className="text-gray-400 text-lg">
+        <p className="text-gray-400 text-sm">Humidity: {main.humidity}%</p>
+        <p className="text-gray-400 text-sm">Cloud Cover: {clouds.all}%</p>
+        <p className="text-gray-400 text-sm">
           Min Temp: {Math.round(main.temp_min)}&deg;C
         </p>
         <p className="text-gray-400 text-lg">
