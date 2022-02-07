@@ -20,7 +20,7 @@ function DetailCard({ weather_icon, data }) {
       </div>
       <div className="my-2 border-1-2 border-gray-100 p-2">
         <p className="text-gray-400 text-lg">
-          RealFeel: {Math.round(main.feel_like)}&deg;C
+          RealFeel: {Math.round(main.feels_like)}&deg;C
         </p>
         <p className="text-gray-400 text-lg">Humidity: {main.humidity}%</p>
         <p className="text-gray-400 text-lg">Cloud Cover: {clouds.all}%</p>
