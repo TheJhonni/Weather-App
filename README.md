@@ -2,6 +2,11 @@
 
 Learn how to quickly set up a React project with the Tailwind CSS framework using the [starter kit](https://github.com/labnol/react-tailwind). The project was bootstrapped with Create React App and it uses PurgeCSS to remove all the unused CSS classes from the production build.
 
+
+# HomePage
+
+![HomePage](HomePage.jpeg)
+
 ## Live Demo
 
 The [Digital Inspiration](https://digitalinspiration.com/) website is built with the Tailwind CSS, React.js and Gatsby.
