@@ -1,18 +1,22 @@
-import { data } from "autoprefixer";
+// import { data } from "autoprefixer";
 import { useState } from "react";
 import DetailCard from "./DetailCard";
 import Header from "./Header";
 import Map from "./Map";
 import SummaryCard from "./SummaryCard";
+// import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   const API_KEY = process.env.REACT_APP_API_KEY;
 
   const [noData, setNoData] = useState("No Data Yet");
+  const [noMap, setNoMap] = useState("No Destination, No Map");
   const [searchTerm, setSearchTerm] = useState("");
   const [weatherData, setWeatherData] = useState([]);
   const [city, setCity] = useState("Unknown location");
-  const [map, setMap] = useState([]);
+  // const [map, setMap] = useState([]);
+
   const [weatherIcon, setWeatherIcon] = useState(
     `${process.env.REACT_APP_ICON_URL}10n@2x.png`
   );
@@ -40,6 +44,7 @@ function HomePage() {
       let data = await res.json();
       if (data.cod != 200) {
         setNoData("Location Not Found");
+        setNoMap("No Location, No Map");
         return;
       }
       setWeatherData(data);
@@ -49,8 +54,6 @@ function HomePage() {
           process.env.REACT_APP_ICON_URL + data.list[0].weather[0]["icon"]
         }@4x.png`
       );
-
-      setMap(`Click me to go to ${data.city.name}'s MAP`);
     } catch (error) {
       console.log(error);
     }
@@ -110,11 +113,23 @@ function HomePage() {
               ></i>
             </form>
           </div>
-          {searchTerm && (
+          {weatherData.length === 0 ? (
+            <h1 className="text-gray-300 text-4xl my-color2 font-bold uppercase">
+              {noMap}
+            </h1>
+          ) : (
             <div className="flex flex-col  mx-auto">
-              <button className="cursor-pointer shadow-xl px-2 hover:bg-red-400 hover:text-white hover:rounded-3xl md:hover:scale-105 transition-all duration-50 ease-in-out">
-                {map}
-              </button>
+              <Map data={weatherData} />
+              <Link to="/map">
+                <button className="cursor-pointer shadow-xl px-2 hover:bg-red-400 hover:text-white hover:rounded-3xl md:hover:scale-105 transition-all duration-50 ease-in-out">
+                  CLICK HERE TO SEE {city.slice(0, -4).toUpperCase()}'s MAP
+                </button>
+                <img
+                  className="w-100 h-300 object-fit mt-4 shadow-2xl hover:border-4 hover:border-red-400 hover:scale-110 transition-all duration-50 ease-in"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI9BRnhW0HuwfpaDE41BzU75qc_gfsUMIyIw&usqp=CAU"
+                  alt=""
+                />
+              </Link>
             </div>
           )}
         </div>

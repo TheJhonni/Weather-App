@@ -1,20 +1,16 @@
 import React, { useState } from "react";
 import ReactMapGL from "react-map-gl";
+// import getCenter from "geolib/es/getCenter";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-function Map({ data }) {
-  console.log(data);
-  const { lat, lon } = data.city.coord;
-
+function Map() {
   const [viewport, setViewport] = useState({
-    width: "30%",
-    height: "30%",
-    latitude: lat,
-    longitude: lon,
-    zoom: 11,
+    width: "100%",
+    height: "100%",
+    latitude: 45.4211,
+    longitude: -75.6903,
+    zoom: 10,
   });
-
-  console.log(data);
 
   return (
     <ReactMapGL
