@@ -6,6 +6,12 @@ Learn how to quickly set up a React project with the Tailwind CSS framework usin
 # HomePage
 
 ![HomePage](HomePage.jpeg)
+# Tokyo Search
+
+![TokyoMap](TokyoMap.jpeg)
+# Boston Search
+
+![BostonMap](BostonMap.jpeg)
 
 ## Live Demo
 
