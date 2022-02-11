@@ -7,8 +7,8 @@ function Map({ data }) {
   const { lat, lon } = data.city.coord;
 
   const [viewport, setViewport] = useState({
-    width: "30%",
-    height: "30%",
+    width: "100%",
+    height: "300%",
     latitude: lat,
     longitude: lon,
     zoom: 11,

@@ -1,6 +1,7 @@
 import HomePage from "./components/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MapRouter from "./components/MapRouter";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/map" element={<MapRouter />} />
+          {/* <Route exact path="/map" element={<MapRouter />} /> */}
         </Routes>
       </BrowserRouter>
     </div>

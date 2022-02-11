@@ -118,9 +118,9 @@ function HomePage() {
               {noMap}
             </h1>
           ) : (
-            <div className="flex flex-col  mx-auto">
+            <div className="flex flex-col h-full mx-auto">
               <Map data={weatherData} />
-              <Link to="/map">
+              {/* <Link to="/map">
                 <button className="cursor-pointer shadow-xl px-2 hover:bg-red-400 hover:text-white hover:rounded-3xl md:hover:scale-105 transition-all duration-50 ease-in-out">
                   CLICK HERE TO SEE {city.slice(0, -4).toUpperCase()}'s MAP
                 </button>
@@ -129,7 +129,7 @@ function HomePage() {
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI9BRnhW0HuwfpaDE41BzU75qc_gfsUMIyIw&usqp=CAU"
                   alt=""
                 />
-              </Link>
+              </Link> */}
             </div>
           )}
         </div>
